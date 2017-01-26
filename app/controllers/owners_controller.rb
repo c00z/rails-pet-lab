@@ -9,9 +9,15 @@ class OwnersController < ApplicationController
   end
 
   def create
-    owner = Owner.create(owner_params)
-    redirect_to owner_path(owner)
+    owner = Owner.new(owner_params)
+    if owner.save
+      session[:owner_id] = owner.id
+      redirect_to '/owners'
+    else
+      redirect_to '/signup'
+    end
   end
+
 
   def show
     owner_id = params[:id]
