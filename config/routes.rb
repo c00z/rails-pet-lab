@@ -8,7 +8,13 @@ Rails.application.routes.draw do
    end
   resources :pets, only: :show
 
-   get "/signup" => "owner#new"
+   get "/signup" => "owners#new"
+
+   get '/login' => 'sessions#new'
+  post '/login' => 'sessions#create'
+  get '/logout' => 'sessions#destroy'
+
+
 
 
 end

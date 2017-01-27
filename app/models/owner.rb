@@ -9,7 +9,7 @@ class Owner < ActiveRecord::Base
 
   before_save :normalize_phone_number
 
-  # has_secure_password
+  has_secure_password
   # removes leading 1 and the characters (, ), -, .
   def normalize_phone_number
     # stretch
